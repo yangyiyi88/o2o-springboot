@@ -27,7 +27,7 @@ $(function () {
                 //获取店铺信息，并添加到html控件
                 var shop = data.shop;
                 $("#shop-name").text(shop.shopName);
-                $("#shop-img").attr("src", shop.shopImg);
+                $("#shop-img").attr("src", getContextPath() + shop.shopImg);
                 $("#shop-update-time").html(new Date(shop.lastEditTime).Format("yyyy-MM-dd"));
                 $("#shop-desc").text(shop.shopDesc);
                 $("#shop-addr").text(shop.shopAddr);
@@ -65,7 +65,7 @@ $(function () {
                         '<ul>' +
                         '<li class="item-content">' +
                         '<div class="item-media">' +
-                        '<img src="' + item.imgAddr + '" width="44">' +
+                        '<img src="' + getContextPath() + item.imgAddr + '" width="44">' +
                         '</div>' +
                         '<div class="item-inner">' +
                         '<div class="item-subtitle">' + item.productDesc + '</div>' +

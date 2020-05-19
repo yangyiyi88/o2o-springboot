@@ -10,7 +10,7 @@ $(function () {
             //获取商品信息
             var product = data.product;
             //给商品信息相关的HTML控件赋值
-            $("#product-img").attr("src", product.imgAddr);
+            $("#product-img").attr("src", getContextPath() + product.imgAddr);
             $("#product-time").text(new Date(product.lastEditTime).Format("yyyy-MM-dd"));
             $("#product-name").text(product.productName);
             $("#product-desc").text(product.productDesc);
@@ -36,7 +36,7 @@ $(function () {
             //遍历商品详情图列表
             var imgListHtml = "";
             product.productImgList.map(function (item, index) {
-                imgListHtml += '<div><img src="' + item.imgAddr + '" width="100%"/></div>';
+                imgListHtml += '<div><img src="' + getContextPath() + item.imgAddr + '" width="100%"/></div>';
             });
             $("#imgList").html(imgListHtml);
         }

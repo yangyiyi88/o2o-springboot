@@ -44,3 +44,11 @@ function getQueryString(name) {
     if (r != null) return unescape(r[2]);
     return null;
 }
+
+/**
+ * 获取项目的ContextPath以便修正图片路由让其正常显示
+ * @returns {string}
+ */
+function getContextPath() {
+    return "/o2o/";
+}

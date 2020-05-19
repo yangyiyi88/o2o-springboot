@@ -11,7 +11,7 @@ $(function () {
             headLineList.map(function (item, index) {
                 swiperHtml += '<div class="swiper-slide img-wrap">' +
                     '<a href="' + item.lineLink + '" external>' +
-                    '<img class="banner-img" src="' + item.lineImg + '" alt="' + item.lineName + '">' +
+                    '<img class="banner-img" src="' + getContextPath() + item.lineImg + '" alt="' + item.lineName + '">' +
                     '</a>' +
                     '</div>'
             });
@@ -28,13 +28,13 @@ $(function () {
             var categoryHtml = "";
             //遍历大类列表，拼接出俩俩一行的类别
             shopCategoryList.map(function (item, index) {
-                categoryHtml += '<div class="col-50 shop-classify" data-category="'+item.shopCategoryId+'">' +
+                categoryHtml += '<div class="col-50 shop-classify" data-category="' + item.shopCategoryId + '">' +
                     '<div class="word">' +
-                    '<p class="shop-title">'+item.shopCategoryName+'</p>' +
-                    '<p class="shop-desc">'+item.shopCategoryDesc+'</p>' +
+                    '<p class="shop-title">' + item.shopCategoryName + '</p>' +
+                    '<p class="shop-desc">' + item.shopCategoryDesc + '</p>' +
                     '</div>' +
                     '<div class="shop-classify-img-warp">' +
-                    '<img class="shop-img" src="'+item.shopCategoryImg+'">' +
+                    '<img class="shop-img" src="' + getContextPath() + item.shopCategoryImg + '">' +
                     '</div>' +
                     '</div>';
             });

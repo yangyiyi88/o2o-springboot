@@ -72,7 +72,7 @@ $(function () {
                         '<ul>' +
                         '<li class="item-content">' +
                         '<div class="item-media">' +
-                        '<img src="' + item.shopImg + '"' +
+                        '<img src="' + getContextPath() + item.shopImg + '"' +
                         '    width="44">' +
                         '</div>' +
                         '<div class="item-inner">' +
@@ -110,7 +110,7 @@ $(function () {
     }
 
     //下滑屏幕自动进行分页搜索
-    $(document).on('infinite', '.infinite-scroll-bottom',function() {
+    $(document).on('infinite', '.infinite-scroll-bottom', function () {
         // 如果正在加载，则退出
         if (loading) return;
         addItems(pageSize, pageNum);
@@ -162,7 +162,7 @@ $(function () {
     });
 
     // 区域信息发生变化后，重置页码，清空原先的店铺列表，按照新的区域去查询
-    $('#area-search').on('change', function() {
+    $('#area-search').on('change', function () {
         areaId = $('#area-search').val();
         $('.list-div').empty();
         pageNum = 1;
@@ -170,7 +170,7 @@ $(function () {
     });
 
     // 点击后打开右侧栏
-    $('#me').click(function() {
+    $('#me').click(function () {
         $.openPanel('#panel-right-demo');
     });
 
