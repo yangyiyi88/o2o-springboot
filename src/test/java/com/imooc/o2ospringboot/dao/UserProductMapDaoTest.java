@@ -28,7 +28,7 @@ public class UserProductMapDaoTest {
         PersonInfo customer = new PersonInfo();
         customer.setUserId(8l);
         Product product = new Product();
-        product.setProductId(3l);
+        product.setProductId(12l);
         Shop shop = new Shop();
         shop.setShopId(29l);
         PersonInfo operator = new PersonInfo();
@@ -46,7 +46,7 @@ public class UserProductMapDaoTest {
         PersonInfo customer2 = new PersonInfo();
         customer2.setUserId(8l);
         Product product2 = new Product();
-        product2.setProductId(3l);
+        product2.setProductId(12l);
         Shop shop2 = new Shop();
         shop2.setShopId(29l);
         PersonInfo operator2 = new PersonInfo();
