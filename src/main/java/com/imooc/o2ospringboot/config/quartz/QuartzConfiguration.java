@@ -60,7 +60,7 @@ public class QuartzConfiguration {
         //绑定jobDetail
         triggerFactory.setJobDetail(jobDetailFactory.getObject());
         //设置cron表达式，请访问:http://cron.qqe2.com/在线表达式生成器
-        triggerFactory.setCronExpression("0/3 * * * * ?");
+        triggerFactory.setCronExpression("0 0 0 * * ? *");
         return triggerFactory;
     }
 

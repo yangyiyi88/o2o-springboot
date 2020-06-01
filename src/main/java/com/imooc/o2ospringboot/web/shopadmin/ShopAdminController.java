@@ -36,5 +36,10 @@ public class ShopAdminController {
     public String productManagement(){
         return "shop/productmanagement";
     }
+
+    @GetMapping("/productbuycheck")
+    public String productBuyCheck(){
+        return "shop/productbuycheck";
+    }
 }
 
