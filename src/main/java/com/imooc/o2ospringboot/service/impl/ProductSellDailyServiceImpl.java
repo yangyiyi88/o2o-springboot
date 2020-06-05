@@ -22,6 +22,8 @@ public class ProductSellDailyServiceImpl implements ProductSellDailyService {
         logger.info("Quartz启动了！");
         //统计在tb_user_product_map里面产生销量的每个店铺的各件商品的日销量
         productSellDailyDao.insertProductSellDaily();
+        //统计余下的商品的商品日销售量，全部置为0（为了迎合echart的数据请求）
+        productSellDailyDao.insertDefaultProductSellDaily();
     }
 
     @Override

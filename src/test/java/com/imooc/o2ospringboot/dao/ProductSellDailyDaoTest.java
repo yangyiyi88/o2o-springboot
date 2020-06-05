@@ -21,9 +21,16 @@ public class ProductSellDailyDaoTest {
 
     @Test
     public void testInsertProductSellDaily() {
-        //创建商品日销量统计
+        //创建商品日销量统计(统计产生销量的商品)
         int effectedNum = productSellDailyDao.insertProductSellDaily();
         assertEquals(5, effectedNum);
+    }
+
+    @Test
+    public void testInsertDefaultProductSellDaily() {
+        //创建商品日销量统计(统计没有产生销量的商品)
+        int effectedNum = productSellDailyDao.insertDefaultProductSellDaily();
+        assertEquals(7, effectedNum);
     }
 
     @Test

@@ -40,15 +40,17 @@
             </if>
             <!-- 根据时间范围查询 -->
             <if test="beginTime != null and endTime != null">
-                and psd.create_time between #{beginTime} and #{endTime}
+                and date_format(psd.create_time,"%Y-%m-%d") between date_format(#{beginTime},"%Y-%m-%d") and
+                date_format(#{endTime},"%Y-%m-%d")
             </if>
             <if test="beginTime != null and endTime == null">
-                and psd.create_time &gt;= #{beginTime}
+                and date_format(psd.create_time,"%Y-%m-%d") &gt;= date_format(#{beginTime},"%Y-%m-%d")
             </if>
             <if test="beginTime == null and endTime != null">
-                and psd.create_time &lt;= #{endTime}
+                and date_format(psd.create_time,"%Y-%m-%d") &lt;= date_format(#{endTime},"%Y-%m-%d")
             </if>
         </where>
+        order by psd.product_id,psd.create_time
     </select>
 
     <insert id="insertProductSellDaily" parameterType="ProductSellDaily">
@@ -60,6 +62,20 @@
             from tb_user_product_map
             where date_format(create_time, "%Y-%m-%d") = date_sub(curdate(), interval 1 day)
             group by product_id
+        )
+    </insert>
+
+    <insert id="insertDefaultProductSellDaily">
+        insert into
+        tb_product_sell_daily(product_id, shop_id, create_time, total)
+        (
+            select
+            product_id, shop_id, date_format(create_time, "%Y-%m-%d"), 0 as total
+            from tb_product
+            where product_id not in
+            (
+                select product_id from tb_product_sell_daily where date_format(create_time, "%Y-%m-%d") = date_sub(curdate(), interval 1 day)
+            )
         )
     </insert>
 </mapper>
