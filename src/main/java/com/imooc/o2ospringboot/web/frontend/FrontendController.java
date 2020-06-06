@@ -23,4 +23,9 @@ public class FrontendController {
     private String shopDetail(){
         return "frontend/shopdetail";
     }
+    //消费记录列表路由
+    @GetMapping("/myrecord")
+    private String myRecord(){
+        return "frontend/myrecord";
+    }
 }
